@@ -118,7 +118,7 @@ public class AuParamFilter implements AuFilter {
         }
         String salt = SaltUtils.generateSalt();
         String encodeData = this.paramsHolder.encode(salt, data);
-        String finalBody = this.paramsHandler.getResponseBody(encodeData, salt);
+        String finalBody = this.paramsHandler.getResponseBody(content,encodeData, salt);
         responseWrapper.setContent(finalBody.getBytes(StandardCharsets.UTF_8));
         log.debug("Encode data success .");
     }

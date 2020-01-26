@@ -70,13 +70,13 @@ public class ResponseMap extends HashMap<String, Object> {
         return new ResponseMap(code, message);
     }
 
-//    /**
-//     * @param key   key
-//     * @param value value
-//     * @return this
-//     */
-//    public ResponseMap putting(String key, Object value) {
-//        this.put(key, value);
-//        return this;
-//    }
+    /**
+     * @param key   key
+     * @param value value
+     * @return this
+     */
+    public ResponseMap putting(String key, Object value) {
+        this.put(key, value);
+        return this;
+    }
 }

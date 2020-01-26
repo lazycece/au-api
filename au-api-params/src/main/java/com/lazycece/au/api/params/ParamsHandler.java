@@ -14,5 +14,5 @@ public interface ParamsHandler {
 
     String getWaitEncodeData(String responseBody);
 
-    String getResponseBody(String encodeData, String salt);
+    String getResponseBody(String responseBody, String encodeData, String salt);
 }

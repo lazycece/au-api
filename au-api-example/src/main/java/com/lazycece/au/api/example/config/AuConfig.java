@@ -2,9 +2,12 @@ package com.lazycece.au.api.example.config;
 
 import com.lazycece.au.AuManager;
 import com.lazycece.au.AuServletFilter;
+import com.lazycece.au.api.example.common.response.ResCode;
+import com.lazycece.au.api.example.common.response.ResponseMap;
 import com.lazycece.au.api.params.ParamsHandler;
 import com.lazycece.au.api.params.ParamsHolder;
 import com.lazycece.au.api.params.filter.AuParamFilter;
+import com.lazycece.au.api.params.utils.JsonUtils;
 import com.lazycece.au.api.token.TokenHandler;
 import com.lazycece.au.api.token.TokenHolder;
 import com.lazycece.au.api.token.filter.AuTokenFilter;
@@ -45,12 +48,12 @@ public class AuConfig {
 
         @Override
         public String noToken() {
-            return "token is null";
+            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN,"token is null"));
         }
 
         @Override
         public String invalidToken() {
-            return "invalid token";
+            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN,"invalid token"));
         }
     }
 
@@ -58,27 +61,31 @@ public class AuConfig {
 
         @Override
         public String validateParamsFail() {
-            return "validate param fail";
+            return JsonUtils.toJSONString(ResponseMap.fail("validate param fail"));
         }
 
         @Override
         public String validateTimeFail() {
-            return null;
+            return JsonUtils.toJSONString(ResponseMap.fail("invalid request"));
         }
 
         @Override
         public String validateSignFail() {
-            return "validate sign fail";
+            return JsonUtils.toJSONString(ResponseMap.fail("validate sign fail"));
         }
 
         @Override
         public String getWaitEncodeData(String responseBody) {
-            return responseBody;
+            ResponseMap responseMap = JsonUtils.parseObject(responseBody,ResponseMap.class);
+            return JsonUtils.toJSONString(responseMap.get(ResponseMap.DATA_FIELD));
         }
 
         @Override
-        public String getResponseBody(String encodeData, String salt) {
-            return null;
+        public String getResponseBody(String responseBody, String encodeData, String salt) {
+            ResponseMap responseMap = JsonUtils.parseObject(responseBody,ResponseMap.class);
+            responseMap.putting(ResponseMap.DATA_FIELD,encodeData)
+                    .putting(ResponseMap.SALT_FIELD,salt);
+            return JsonUtils.toJSONString(responseMap);
         }
     }
 }
