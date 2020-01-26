@@ -110,7 +110,7 @@ public class HttpHelper {
     private HashMap<String, String> getParams(Object data) throws Exception {
         HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put("time", String.valueOf(System.currentTimeMillis()));
-        paramsMap.put("deviceNo", "unit-test");
+        paramsMap.put("deviceId", "unit-test");
         paramsMap.put("version", "2.0.0");
         paramsMap.put("versionCode", "200");
         String salt = SaltUtils.generateSalt();

@@ -4,9 +4,11 @@ import com.lazycece.au.AuManager;
 import com.lazycece.au.AuServletFilter;
 import com.lazycece.au.api.example.common.response.ResCode;
 import com.lazycece.au.api.example.common.response.ResponseMap;
+import com.lazycece.au.api.example.entity.dos.ApiParams;
 import com.lazycece.au.api.params.ParamsHandler;
 import com.lazycece.au.api.params.ParamsHolder;
 import com.lazycece.au.api.params.filter.AuParamFilter;
+import com.lazycece.au.api.params.filter.MultiPartRequestFilter;
 import com.lazycece.au.api.params.utils.JsonUtils;
 import com.lazycece.au.api.token.TokenHandler;
 import com.lazycece.au.api.token.TokenHolder;
@@ -31,10 +33,11 @@ public class AuConfig {
         filterRegistrationBean.setOrder(1);
 
         AuManager auManager = AuManager.getInstance();
+        auManager.addAuFilter(MultiPartRequestFilter.class).includePatterns("/**").order(Integer.MIN_VALUE);
         AuTokenFilter auTokenFilter = new AuTokenFilter(tokenHolder, new AuTokenHandler());
-        auManager.addAuFilter(auTokenFilter).includePatterns("/**").excludePatterns("/u/login");
-        AuParamFilter auParamFilter = new AuParamFilter(ParamsHolder.build(SECRET), new AuParamsHandler());
-        auManager.addAuFilter(auParamFilter).includePatterns("/**");
+        auManager.addAuFilter(auTokenFilter).includePatterns("/**").excludePatterns("/u/login").order(1);
+        AuParamFilter auParamFilter = new AuParamFilter(ParamsHolder.build(SECRET).paramsClazz(ApiParams.class), new AuParamsHandler());
+        auManager.addAuFilter(auParamFilter).includePatterns("/**").order(2);
         return filterRegistrationBean;
     }
 

@@ -58,10 +58,7 @@ public class AuParamFilter implements AuFilter {
             jsonContent = JsonUtils.toJSONString(paramsMap);
         }// TODO: 2020/1/19 get application/json
         log.debug("api params -> {}", jsonContent);
-        // TODO: 2019/11/24  validate
         ApiParams apiParams = (ApiParams) JsonUtils.parseObject(jsonContent, this.paramsHolder.getParamsClazz());
-//        ApiParams apiParams = JsonUtils.parseObject(jsonContent, ApiParams.class);
-
         // 2.check params
         if (!apiParams.validate()) {
             RequestContext.getCurrentContext().getResponse().getOutputStream().print(this.paramsHandler.validateParamsFail());
