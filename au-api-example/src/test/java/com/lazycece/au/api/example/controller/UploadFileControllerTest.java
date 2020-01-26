@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
  */
 public class UploadFileControllerTest {
 
-    private String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxNyxcInRlbGVwaG9uZVwiOlwiMTUxODIzMDk4MDZcIixcImNoYW5uZWxcIjpcImRlZmF1bHRcIixcInVzZXJOdW1iZXJcIjpcIjEwMDAwMlwifSIsImlzcyI6IlNBUy1RSEQiLCJleHAiOjE1Nzg5OTUwODksImlhdCI6MTU3ODkwODY4OX0.VJ_X71wnly4-4L74zjCwdFIZ1Sci9aBUSIoDn6aG9RY";
+    private String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyTzBBQlhOeUFESmpiMjB1YkdGNmVXTmxZMlV1WVhVdVlYQnBMbVY0WVcxd2JHVXVaVzUwYVhSNUxtUnZjeTVWYzJWeVUzVmlhbVZqZEJWMXlLYnVUeWJxQWdBQlRBQUlkWE5sY201aGJXVjBBQkpNYW1GMllTOXNZVzVuTDFOMGNtbHVaenQ0Y0hRQUNHeGhlbmxqWldObCIsImlzcyI6IlRPS0VOLUlTU1VFUiIsImV4cCI6MTU4MDA1NzExOSwiaWF0IjoxNTgwMDUzNTE5fQ.jBtKG-hH_oNPXqXnwEZ_tVpViCkACm81l8INQCTdTlc";
 
     @Test
     public void testUpload() throws Exception {
-        String filePath = ClassLoader.getSystemResource("test-upload.wav").getFile();
+        String filePath = ClassLoader.getSystemResource("application.yml").getFile();
         HttpHelper.getInstance().token(token).doUpload("/upload/file", filePath, "file", null, String.class);
     }
 }

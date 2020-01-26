@@ -17,4 +17,9 @@ public class UserControllerTest {
         ResponseEntity responseEntity = HttpHelper.getInstance().doPostJson("/u/login", req);
         System.out.println(responseEntity.getHeaders().get(HttpHelper.TOKEN_HEADER));
     }
+
+    @Test
+    public void testInfo() throws Exception {
+        HttpHelper.getInstance().doGet("/u/info",null,String.class);
+    }
 }

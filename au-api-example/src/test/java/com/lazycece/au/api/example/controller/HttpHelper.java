@@ -28,7 +28,7 @@ public class HttpHelper {
     private ParamsHolder paramsHolder;
     private TokenHolder tokenHolder;
     private RestTemplate restTemplate;
-    private String token;
+    private String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyTzBBQlhOeUFESmpiMjB1YkdGNmVXTmxZMlV1WVhVdVlYQnBMbVY0WVcxd2JHVXVaVzUwYVhSNUxtUnZjeTVWYzJWeVUzVmlhbVZqZEJWMXlLYnVUeWJxQWdBQlRBQUlkWE5sY201aGJXVjBBQkpNYW1GMllTOXNZVzVuTDFOMGNtbHVaenQ0Y0hRQUNHeGhlbmxqWldObCIsImlzcyI6IlRPS0VOLUlTU1VFUiIsImV4cCI6MTU4MDA1NzExOSwiaWF0IjoxNTgwMDUzNTE5fQ.jBtKG-hH_oNPXqXnwEZ_tVpViCkACm81l8INQCTdTlc";
 
     private HttpHelper() {
         this("http://127.0.0.1:8888/au-api");
