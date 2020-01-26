@@ -12,7 +12,6 @@
     <module>au-api-token</module>
     <module>au-api-params</module>
     <module>au-api-all</module>
-    <module>au-api-sample</module>
   </modules>
 
   <name>${project.artifactId}</name>
