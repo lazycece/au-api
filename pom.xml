@@ -10,8 +10,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>au-api-token</module>
-    <module>au-api-sample</module>
     <module>au-api-params</module>
+    <module>au-api-all</module>
+    <module>au-api-sample</module>
   </modules>
 
   <name>${project.artifactId}</name>
@@ -20,17 +21,20 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Maven plugin-->
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
     <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
 
+    <!-- Test dependency-->
     <junit.version>4.12</junit.version>
     <assertj.core.version>3.14.0</assertj.core.version>
     <mockito.core.version>3.1.0</mockito.core.version>
 
     <au-core.version>1.0.1</au-core.version>
-    <!--        <servlet-api.version>4.0.1</servlet-api.version>-->
+    <!--<servlet-api.version>4.0.1</servlet-api.version>-->
     <servlet.api.version>3.1.0</servlet.api.version>
     <commons.codec.version>1.13</commons.codec.version>
     <jwt.version>3.8.3</jwt.version>
