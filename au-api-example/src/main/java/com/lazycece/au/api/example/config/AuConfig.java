@@ -33,11 +33,11 @@ public class AuConfig {
         filterRegistrationBean.setOrder(1);
 
         AuManager auManager = AuManager.getInstance();
-        auManager.addAuFilter(MultiPartRequestFilter.class).includePatterns("/**").order(Integer.MIN_VALUE);
         AuTokenFilter auTokenFilter = new AuTokenFilter(tokenHolder, new AuTokenHandler());
         auManager.addAuFilter(auTokenFilter).includePatterns("/**").excludePatterns("/u/login").order(1);
+        auManager.addAuFilter(MultiPartRequestFilter.class).includePatterns("/**").order(2);
         AuParamFilter auParamFilter = new AuParamFilter(ParamsHolder.build(SECRET).paramsClazz(ApiParams.class), new AuParamsHandler());
-        auManager.addAuFilter(auParamFilter).includePatterns("/**").order(2);
+        auManager.addAuFilter(auParamFilter).includePatterns("/**").order(3);
         return filterRegistrationBean;
     }
 
