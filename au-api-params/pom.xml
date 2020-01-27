@@ -10,7 +10,7 @@
   </parent>
   <artifactId>au-api-params</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-
+  <description>Parameter signature, encryption and decryption .</description>
   <name>${project.artifactId}</name>
 
   <dependencies>

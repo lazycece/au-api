@@ -9,6 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>au-api-token</artifactId>
+    <description>api token</description>
     <name>${project.artifactId}</name>
 
     <dependencies>

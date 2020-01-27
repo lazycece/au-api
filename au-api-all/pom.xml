@@ -10,6 +10,7 @@
   </parent>
   <artifactId>au-api</artifactId>
   <name>au-api-all</name>
+  <description>The project for au-api in all.</description>
 
   <dependencies>
     <dependency>
