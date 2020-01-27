@@ -6,8 +6,8 @@
 
   <groupId>com.lazycece.au</groupId>
   <artifactId>au-api-parent</artifactId>
-  <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <modules>
     <module>au-api-token</module>
     <module>au-api-params</module>
@@ -20,20 +20,17 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <!-- Maven plugin-->
+    <!-- Maven -->
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.plugin.version>3.6.2</maven.compiler.plugin.version>
     <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-
-    <!-- Test dependency-->
+    <!-- Test -->
     <junit.version>4.12</junit.version>
     <assertj.core.version>3.14.0</assertj.core.version>
     <mockito.core.version>3.1.0</mockito.core.version>
-
+    <!-- core -->
     <au-core.version>1.0.1</au-core.version>
-    <!--<servlet-api.version>4.0.1</servlet-api.version>-->
     <servlet.api.version>3.1.0</servlet.api.version>
     <commons.codec.version>1.13</commons.codec.version>
     <jwt.version>3.8.3</jwt.version>
@@ -104,15 +101,13 @@
   </dependencyManagement>
 
   <build>
-    <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <!-- lock down plugins versions to avoid using Maven defaults -->
     <pluginManagement>
       <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -120,11 +115,6 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
-          <configuration>
-            <source>${maven.compiler.source}</source>
-            <target>${maven.compiler.target}</target>
-            <encoding>${project.build.sourceEncoding}</encoding>
-          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -145,7 +135,6 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>

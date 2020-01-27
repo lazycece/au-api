@@ -56,7 +56,7 @@ public class AuParamFilter implements AuFilter {
         } else {
             requestWrapper.getParameters().forEach((name, values) -> paramsMap.put(name, values[0]));
             jsonContent = JsonUtils.toJSONString(paramsMap);
-        }// TODO: 2020/1/19 get application/json
+        }
         log.debug("api params -> {}", jsonContent);
         ApiParams apiParams = (ApiParams) JsonUtils.parseObject(jsonContent, this.paramsHolder.getParamsClazz());
         // 2.check params
@@ -99,7 +99,6 @@ public class AuParamFilter implements AuFilter {
 
     @Override
     public void postHandle() throws Exception {
-
         log.debug("Encode data ..");
         HttpServletResponseWrapper responseWrapper = (HttpServletResponseWrapper) RequestContext.getCurrentContext().getResponse();
         byte[] bytes = responseWrapper.getContent();
