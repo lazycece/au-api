@@ -58,7 +58,7 @@
     <assertj.core.version>3.14.0</assertj.core.version>
     <mockito.core.version>3.1.0</mockito.core.version>
     <!-- core -->
-    <au-core.version>1.0.1</au-core.version>
+    <au.core.version>1.0.1</au.core.version>
     <servlet.api.version>3.1.0</servlet.api.version>
     <commons.codec.version>1.13</commons.codec.version>
     <jwt.version>3.8.3</jwt.version>
@@ -109,7 +109,7 @@
     <dependency>
       <groupId>com.lazycece.au</groupId>
       <artifactId>au-core</artifactId>
-      <version>${au-core.version}</version>
+      <version>${au.core.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-codec</groupId>
