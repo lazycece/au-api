@@ -21,10 +21,10 @@ public class ParamsHolder {
      * The time interval that request from client to server.
      */
     private long timeInterval = 3000;
-    private final String secretKey;
+    private final String secret;
 
-    private ParamsHolder(String secretKey) {
-        this.secretKey = secretKey;
+    private ParamsHolder(String secret) {
+        this.secret = secret;
     }
 
     public static ParamsHolder build(String secretKey) {
@@ -55,18 +55,18 @@ public class ParamsHolder {
     }
 
     public String sign(Map<String, String> params) {
-        return SignatureUtils.generate(params, this.secretKey, "sign");
+        return SignatureUtils.generate(params, this.secret, "sign");
     }
 
     public String encode(String salt, String data) throws Exception {
-        String key = DigestUtils.md5Hex(salt + this.secretKey);
+        String key = DigestUtils.md5Hex(salt + this.secret);
         byte[] bytes = this.dataCrypto.encrypt(key, data);
         byte[] base64Encode = Base64.encodeBase64(bytes);
         return new String(base64Encode, StandardCharsets.UTF_8);
     }
 
     public String decode(String salt, String encodeData) throws Exception {
-        String key = DigestUtils.md5Hex(salt + this.secretKey);
+        String key = DigestUtils.md5Hex(salt + this.secret);
         byte[] base64Decode = Base64.decodeBase64(encodeData.getBytes(StandardCharsets.UTF_8));
         byte[] bytes = this.dataCrypto.decrypt(key, base64Decode);
         return new String(bytes, StandardCharsets.UTF_8);
