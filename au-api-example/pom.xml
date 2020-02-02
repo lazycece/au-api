@@ -17,13 +17,14 @@
     <properties>
         <java.version>1.8</java.version>
         <maven.test.skip>true</maven.test.skip>
+        <au.api.version>0.0.1-SNAPSHOT</au.api.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.lazycece.au</groupId>
             <artifactId>au-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${au.api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
