@@ -20,7 +20,7 @@ public class ParamsHolder {
     /**
      * The time interval that request from client to server.
      */
-    private long timeInterval = 3000;
+    private long timeInterval = 3 * 60 * 1000;
     private final String secret;
 
     private ParamsHolder(String secret) {
