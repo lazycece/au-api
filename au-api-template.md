@@ -65,18 +65,18 @@ sign = md5(str).toUpperCase()
 
 ### 1.5 数据加解密
 
-接口交互中，请求和返回数据中`data`参数会进行加解密操作。
+接口交互中，请求和返回数据中`data`参数会进行加解密操作，采用`DES3-ECB`对称加密算法。
 
 加密伪代码如下：
 
 ```
-data = base64_encode(encrypt( md5(salt + secrt_key), data_json))
+data = base64_encode(des3_ecb_encode( md5(salt + secrt_key), data_json))
 ```
 
 解密伪代码如下：
 
 ```
-json_data = decrypt(md5(salt + secrt_key), base64_decode(data))
+json_data = des3_ecb_decode(md5(salt + secrt_key), base64_decode(data))
 ```
 
 ## 2 接口定义
