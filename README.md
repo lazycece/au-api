@@ -13,21 +13,6 @@
 ### Maven Dependency
 
 ```xml
- <!-- 使用SNAPSHOT版本时请添加sonatype仓库 -->
- <repositories>
-    <repository>
-      <id>sonatype</id>
-      <name>sonatype</name>
-      <url>https://oss.sonatype.org/content/groups/public</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
-
   <dependency>
     <groupId>com.lazycece.au</groupId>
     <artifactId>au-api</artifactId>
