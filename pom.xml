@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lazycece.au</groupId>
   <artifactId>au-api-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>The parent project of Au Api</description>
