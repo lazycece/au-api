@@ -85,10 +85,6 @@ data = base64_encode(encrypt( md5(salt + secrt_key), data_json))
 json_data = decrypt(md5(salt + secrt_key), base64_decode(data))
 ```
 
-## Au Api 协议模板
-
-提供基于[au-api-example](https://github.com/lazycece/au-api/tree/master/au-api-example)的[接口协议模板](au-api-template.md).
-
 ## License
 
 [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
