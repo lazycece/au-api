@@ -13,12 +13,28 @@
 ### Maven Dependency
 
 ```xml
-<dependency>
-  <groupId>com.lazycece.au</groupId>
-  <artifactId>au-api</artifactId>
-  <version>${au.core.version}</version>
-</dependency>
+ <!-- 使用SNAPSHOT版本时请添加sonatype仓库 -->
+ <repositories>
+    <repository>
+      <id>sonatype</id>
+      <name>sonatype</name>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
+  <dependency>
+    <groupId>com.lazycece.au</groupId>
+    <artifactId>au-api</artifactId>
+    <version>${au.core.version}</version>
+  </dependency>
 ```
+
 ### `Au api`集成
 
 请直接查看使用样例 [au-api-example](https://github.com/lazycece/au-api/tree/master/au-api-example)
