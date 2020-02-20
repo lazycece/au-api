@@ -38,7 +38,7 @@ public class AuParamFilter implements AuFilter {
 
     @Override
     public String name() {
-        return "au-sign-filter";
+        return "au-param-filter";
     }
 
     @Override
