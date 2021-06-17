@@ -51,12 +51,12 @@ public class AuConfig {
 
         @Override
         public String noToken() {
-            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN,"token is null"));
+            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN, "token is null"));
         }
 
         @Override
         public String invalidToken() {
-            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN,"invalid token"));
+            return JsonUtils.toJSONString(ResponseMap.fail(ResCode.INVALID_TOKEN, "invalid token"));
         }
     }
 
@@ -79,15 +79,16 @@ public class AuConfig {
 
         @Override
         public String getWaitEncodeData(String responseBody) {
-            ResponseMap responseMap = JsonUtils.parseObject(responseBody,ResponseMap.class);
-            return JsonUtils.toJSONString(responseMap.get(ResponseMap.DATA_FIELD));
+            ResponseMap responseMap = JsonUtils.parseObject(responseBody, ResponseMap.class);
+            Object data = responseMap.get(ResponseMap.DATA_FIELD);
+            return data == null ? null : JsonUtils.toJSONString(data);
         }
 
         @Override
         public String getResponseBody(String responseBody, String encodeData, String salt) {
-            ResponseMap responseMap = JsonUtils.parseObject(responseBody,ResponseMap.class);
-            responseMap.putting(ResponseMap.DATA_FIELD,encodeData)
-                    .putting(ResponseMap.SALT_FIELD,salt);
+            ResponseMap responseMap = JsonUtils.parseObject(responseBody, ResponseMap.class);
+            responseMap.putting(ResponseMap.DATA_FIELD, encodeData)
+                    .putting(ResponseMap.SALT_FIELD, salt);
             return JsonUtils.toJSONString(responseMap);
         }
     }
