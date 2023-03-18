@@ -22,7 +22,7 @@ public class TokenHolder {
     private String issuer = "TOKEN-ISSUER";
     private long expire = 30 * 60 * 1000;
     private boolean refresh = true;
-    private String secret;
+    private final String secret;
 
     private TokenHolder(String secret) {
         this.secret = secret;
