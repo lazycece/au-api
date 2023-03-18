@@ -7,7 +7,9 @@ import com.lazycece.au.api.token.serialize.Serializer;
 import com.lazycece.au.api.token.serialize.SubjectSerializer;
 import com.lazycece.au.log.AuLogger;
 import com.lazycece.au.log.AuLoggerFactory;
+import org.apache.commons.codec.binary.Base64;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
@@ -69,15 +71,17 @@ public class TokenHolder {
             throw new IllegalArgumentException("subject must not null");
         }
         String subjectStr = this.serializer.serialize(subject);
-        return JWT.create()
+        String jwtToken = JWT.create()
                 .withIssuer(this.issuer)
                 .withSubject(subjectStr)
                 .withExpiresAt(new Date(System.currentTimeMillis() + this.expire))
                 .withIssuedAt(new Date(System.currentTimeMillis()))
                 .sign(Algorithm.HMAC256(this.secret));
+        return base64Encode(jwtToken);
     }
 
     public boolean verification(String token) {
+        token = base64Decode(token);
         boolean verify = false;
         try {
             DecodedJWT jwt = JWT.require(Algorithm.HMAC256(this.secret)).build().verify(token);
@@ -89,7 +93,18 @@ public class TokenHolder {
     }
 
     public Subject parseToken(String token) throws Exception {
+        token = base64Decode(token);
         DecodedJWT jwt = JWT.decode(token);
         return this.serializer.deserialize(jwt.getSubject());
+    }
+
+    private String base64Encode(String token) {
+        byte[] base64Encode = Base64.encodeBase64(token.getBytes(StandardCharsets.UTF_8));
+        return new String(base64Encode, StandardCharsets.UTF_8);
+    }
+
+    private String base64Decode(String token) {
+        byte[] base64Decode = Base64.decodeBase64(token.getBytes(StandardCharsets.UTF_8));
+        return new String(base64Decode, StandardCharsets.UTF_8);
     }
 }
