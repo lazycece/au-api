@@ -13,7 +13,6 @@ import java.util.Date;
 /**
  * @author lazycece
  */
-@SuppressWarnings("unchecked")
 public class TokenHolder {
 
     private final AuLogger log = AuLoggerFactory.getLogger(this.getClass());
