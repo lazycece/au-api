@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-green)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![GitHub release](https://img.shields.io/badge/release-download-orange.svg)](https://github.com/lazycece/au-api/releases)
 
-`Au api`是一个基于[Au框架](https://github.com/lazycece/au)实现的api安全框架，支持token认证、防拦截、参数签名以及数据加密等，适用于任何基于`servlet`的web项目, 如Spring, Spring Boot
+`Au api`是一个基于[Au框架](https://github.com/lazycece/au) 实现的api安全框架，支持token认证、防拦截、参数签名以及数据加密等，适用于任何基于`servlet`的web项目, 如Spring, Spring Boot 等等。
 
 ## 如何使用？
 
