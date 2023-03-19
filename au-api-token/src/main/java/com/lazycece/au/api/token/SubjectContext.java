@@ -6,7 +6,7 @@ package com.lazycece.au.api.token;
  */
 public class SubjectContext {
 
-    private static ThreadLocal<Subject> context = new ThreadLocal<>();
+    private static final ThreadLocal<Subject> context = new ThreadLocal<>();
 
     public static void setContext(Subject subject) {
         if (subject == null) {

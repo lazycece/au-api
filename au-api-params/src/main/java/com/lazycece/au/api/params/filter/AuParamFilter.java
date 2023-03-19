@@ -80,8 +80,8 @@ public class AuParamFilter implements AuFilter {
         if (StringUtils.isNotBlank(apiParams.getData())) {
             String data = this.paramsHolder.decode(apiParams.getSalt(), apiParams.getData());
             log.debug("request data -> {}", data);
-            // retain basic parameters, and remove encode data.
-            paramsMap.remove("data");
+            // retain basic parameters, and replace encode data.
+            paramsMap.put("data",data);
             if (StringUtils.isNotBlank(contentType) && contentType.contains(CONTENT_TYPE_JSON)) {
                 Field contentFiled = FieldUtils.getField(HttpServletRequestWrapper.class, "content", true);
                 FieldUtils.writeField(contentFiled, requestWrapper, data.getBytes(StandardCharsets.UTF_8), true);

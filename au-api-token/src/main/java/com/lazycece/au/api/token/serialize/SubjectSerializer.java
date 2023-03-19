@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  * @author lazycece
  * @date 2019/11/09
  */
-public class SubjectSerializer implements Serializer<Subject> {
+public class SubjectSerializer implements Serializer {
 
     @Override
     public String serialize(Subject subject) throws Exception {

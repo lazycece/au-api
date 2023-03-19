@@ -40,7 +40,8 @@ public class TokenHolderTest {
                 .issuer("AU-TEST-ISSUER")
                 .expire(10 * 60 * 1000)
                 .tokenHeader("AU-TEST-HEADER")
-                .serializer(new TestSerializer());
+                .serializer(new TestSerializer())
+                .refresh(true);
         String token = tokenHolder.generateToken(testSubject);
 
         boolean valid = tokenHolder.verification(token);
@@ -60,10 +61,10 @@ public class TokenHolderTest {
         }
     }
 
-    private static class TestSerializer implements Serializer<TestSubject> {
+    private static class TestSerializer implements Serializer {
 
         @Override
-        public String serialize(TestSubject testSubject) throws Exception {
+        public String serialize(Subject testSubject) throws Exception {
             return JSON.toJSONString(testSubject);
         }
 
