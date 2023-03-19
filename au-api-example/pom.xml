@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <maven.test.skip>true</maven.test.skip>
-        <au.api.version>1.0.2-SNAPSHOT</au.api.version>
+        <au.api.version>1.0.2</au.api.version>
     </properties>
 
     <dependencies>
