@@ -6,7 +6,7 @@
   <parent>
     <artifactId>au-api-parent</artifactId>
     <groupId>com.lazycece.au</groupId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>au-api</artifactId>
   <name>au-api-all</name>
