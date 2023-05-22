@@ -6,7 +6,7 @@
     <parent>
         <artifactId>au-api-parent</artifactId>
         <groupId>com.lazycece.au</groupId>
-        <version>1.0.2</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>au-api-params</artifactId>
     <description>Parameter signature, encryption and decryption .</description>

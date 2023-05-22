@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lazycece.au</groupId>
     <artifactId>au-api-parent</artifactId>
-    <version>1.0.2</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>The parent project of Au Api</description>
@@ -38,6 +38,9 @@
     </modules>
 
     <properties>
+        <!-- Project revision -->
+        <revision>2.0.0-SNAPSHOT</revision>
+
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -53,13 +56,14 @@
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
         <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+        <flatten.maven.plugin.version>1.2.7</flatten.maven.plugin.version>
         <!-- Test -->
         <junit.version>4.13.2</junit.version>
         <assertj.core.version>3.24.2</assertj.core.version>
         <mockito.core.version>5.2.0</mockito.core.version>
         <!-- core -->
-        <au.core.version>1.0.3</au.core.version>
-        <servlet.api.version>4.0.1</servlet.api.version>
+        <au.core.version>2.0.0</au.core.version>
+        <servlet.api.version>5.0.0</servlet.api.version>
         <commons.codec.version>1.15</commons.codec.version>
         <jwt.version>3.8.3</jwt.version>
         <fastjson.version>1.2.83</fastjson.version>
@@ -112,8 +116,8 @@
             <version>${au.core.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <version>${servlet.api.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -262,6 +266,31 @@
                 <configuration>
                     <skip>${maven.deploy.skip}</skip>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten.maven.plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
