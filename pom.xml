@@ -35,6 +35,7 @@
         <module>au-api-token</module>
         <module>au-api-params</module>
         <module>au-api-all</module>
+        <module>au-api-example</module>
     </modules>
 
     <properties>
