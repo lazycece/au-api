@@ -40,7 +40,7 @@ Au API 环境依赖如下:
   <dependency>
     <groupId>com.lazycece.au</groupId>
     <artifactId>au-api</artifactId>
-    <version>${au.core.version}</version>
+    <version>${au-api.version}</version>
   </dependency>
 ```
 
