@@ -6,9 +6,9 @@ import com.lazycece.au.http.HttpServletRequestWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Part;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
@@ -36,7 +36,7 @@ public class MultiPartRequestFilter implements AuFilter {
         return true;
     }
 
-    static class MultiPartRequestWrapper extends javax.servlet.http.HttpServletRequestWrapper {
+    static class MultiPartRequestWrapper extends jakarta.servlet.http.HttpServletRequestWrapper {
 
         private Collection<Part> parts = null;
 
