@@ -6,6 +6,15 @@
 
 `Au api`是一个基于[Au框架](https://github.com/lazycece/au) 实现的api安全框架，支持token认证、防拦截、参数签名以及数据加密等，适用于任何基于`servlet`的web项目, 如Spring, Spring Boot 等等。
 
+## Environment
+
+Au API 环境依赖如下:
+
+|Au API|Java|Servlet Api|
+|---|---|---|
+|1.x|1.8+|javax.servlet-api:>=4.0.0|
+|2.x|17+|jakarta.servlet-api:>=5.0.0|
+
 ## 如何使用？
 
 > `spring boot`项目请移步[`au-api-spring-boot`](https://github.com/lazycece/au-api-spring-boot)
