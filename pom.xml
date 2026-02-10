@@ -60,7 +60,7 @@
         <flatten.maven.plugin.version>1.2.7</flatten.maven.plugin.version>
         <!-- Test -->
         <junit.version>4.13.2</junit.version>
-        <assertj.core.version>3.24.2</assertj.core.version>
+        <assertj.core.version>3.27.7</assertj.core.version>
         <mockito.core.version>5.2.0</mockito.core.version>
         <!-- core -->
         <au.core.version>3.0.0</au.core.version>
